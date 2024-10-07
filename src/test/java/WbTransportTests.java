@@ -51,7 +51,7 @@ public class WbTransportTests extends TestBase {
                 .checkCurrencyOfCard(currencies.getCurrency());
     }
 
-    static Stream<Arguments> cardProductParamsBySeller() {
+    static Stream<Arguments> cardProductParamsBySellerTest() {
         return Stream.of(
                 Arguments.of("Bike4youru", new BikeCardPage("Мопед SCOUT 11", "234976129", "96 140",
                         "48 куб. см", "бензин", "5 лс",
@@ -72,7 +72,7 @@ public class WbTransportTests extends TestBase {
     @MethodSource()
     @Tag("REGRESS")
     @ParameterizedTest(name = "У продавца {0} должен иметься товар {1} с соответствующими характеристиками и ценой")
-    void cardProductParamsBySeller(String seller, Card card) {
+    void cardProductParamsBySellerTest(String seller, Card card) {
         vehicles.filterCardsBySeller(seller)
                 .goInsideTheCard(card.getNameCard());
 
